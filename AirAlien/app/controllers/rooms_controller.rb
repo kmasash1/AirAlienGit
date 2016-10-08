@@ -15,11 +15,11 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = current_user.room.build(room_params)
+    @room = current_user.rooms.build(room_params)
 
     if @room.save
 
-      if params[:images]
+      if params[:images] 
         params[:images].each do |image|
           @room.photos.create(image: image)
         end
@@ -43,7 +43,7 @@ class RoomsController < ApplicationController
   def update
     if @room.update(room_params)
 
-      if params[:images]
+      if params[:images] 
         params[:images].each do |image|
           @room.photos.create(image: image)
         end
@@ -57,10 +57,10 @@ class RoomsController < ApplicationController
 
   private
     def set_room
-      @rooms = Room.find(params[:id])
+      @room = Room.find(params[:id]) 
     end
 
     def room_params
-      params.require(:room).permit(:home_type, :room_type, :accomodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
     end
 end
