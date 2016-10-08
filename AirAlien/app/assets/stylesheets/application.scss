@@ -7,8 +7,12 @@ body {
   background-color: #F8F8F8;
 }
 
-.container {
+.container-large {
 	width: 80%;
+}
+
+.container-full {
+  width: 100%;
 }
 
 .navbar-default {
@@ -210,4 +214,13 @@ input[type="checkbox"]:checked:before {
 
 .panel-heading.preview img{  
   width: 100%;
+}
+
+.amenities li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.text-line-through {
+  text-decoration: line-through
 }
