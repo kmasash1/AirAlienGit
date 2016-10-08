@@ -91,6 +91,7 @@
 			</div>
 		</div>
 
+		<!-- Carousel -->
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -124,6 +125,42 @@
 				    <span class="sr-only">Next</span>
 				  </a>
 				</div>
+
+			</div>
+		</div>
+
+		<br>
+		<hr>
+
+		<!-- Google Map -->
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div id="map"></div>
+
+				<style>
+			       #map {
+			        height: 400px;
+			        width: 100%;
+			       }
+			    </style>
+
+			    <script>
+			      function initMap() {
+			        var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+			        var map = new google.maps.Map(document.getElementById('map'), {
+			          zoom: 14,
+			          center: uluru
+			        });
+			        var marker = new google.maps.Marker({
+			          position: uluru,
+			          map: map
+			        });
+			      }
+			    </script>
+			    <script async defer
+			        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxL0RKMyvsyvxDQSBjS-0mrVvjJpnnDfU&callback=initMap">
+			    </script>
 
 			</div>
 		</div>
