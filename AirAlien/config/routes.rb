@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :reservations, only: [:create]
   end
+
+  get '/preload' => 'reservations#preload'
   
 end
